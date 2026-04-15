@@ -11,7 +11,10 @@
 
 Implementation of scan-based Design-for-Testability (DFT) architecture and ATPG workflow for a sequential 32-bit Ripple Carry Adder designed in Verilog and synthesized using Cadence EDA tools.
 
+</div>
+
 ---
+
 
 ## 🎯 Overview
 

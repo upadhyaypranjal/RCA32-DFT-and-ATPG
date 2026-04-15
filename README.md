@@ -1,3 +1,5 @@
+<div align="center">
+
 # RCA32-DFT-and-ATPG
 
 Implementation of Design-for-Testability (DFT) and Automatic Test Pattern Generation (ATPG) techniques for a 32-bit Ripple Carry Adder using Cadence Genus and Modus.
@@ -109,16 +111,21 @@ ATPG (Planned)
 
 ## 📊 Results
 
-### DFT Implementation Summary
+### Design Structure Summary
 
 | Metric | Value |
 |-------|-------|
-| Total Scan Flip-Flops | 98 |
-| Scan Chains Generated | 1 |
-| DFT Rule Check | Pass |
-| Netlist Generated | Yes |
-| SCANDEF Generated | Yes |
-| Post-DFT Optimization | Completed |
+| Total Sequential Elements | 98 |
+| Total Scan Cells Inserted | 98 |
+| Total Scan Chains | 1 |
+| Chain Length | 98 bits |
+| Primary Inputs | 37 |
+| Primary Outputs | 33 |
+| DFT Control Points | 1 (scan_en) |
+| DFT Observe Points | 1 (SO) |
+| Technology Library | 90nm CMOS |
+| Synthesis Status | Successful |
+| DFT Insertion Status | Successful |
 
 ---
 
@@ -156,12 +163,23 @@ The following enhancements are planned for future updates of this repository:
 
 ---
 
-## 🎓 Academic Context
+<div align="center">
 
-**Course:** Digital Systems Testing  
-**Institution:** IIITDM Kurnool  
-**Tools Used:** Cadence Genus, Cadence Modus  
-**Technology Library:** 90nm CMOS Standard Cell Library  
+### 👨‍🎓 About the Developer  
+
+**Pranjal Upadhyay**  
+Roll No.: 523EC0012  
+
+Department of Electronics and Communication Engineering  
+Integrated Bachelor and Master of Technology  
+
+**Indian Institute of Information Technology Design and Manufacturing, Kurnool**
 
 ---
+
+### ⭐ Star this repository if you found it helpful!
+
+---
+
+© 2025 Pranjal Upadhyay — All Rights Reserved
 

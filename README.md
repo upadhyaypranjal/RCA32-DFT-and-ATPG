@@ -1,9 +1,5 @@
 <div align="center">
 
-# RCA32-DFT-and-ATPG
-
-Implementation of Design-for-Testability (DFT) and Automatic Test Pattern Generation (ATPG) techniques for a 32-bit Ripple Carry Adder using Cadence Genus and Modus.
-
 # 32-bit Ripple Carry Adder: DFT Insertion & ATPG
 
 ![Cadence](https://img.shields.io/badge/CADENCE-GENUS_SYNTHESIS-blue)

@@ -1,0 +1,108 @@
+Reporting 1 scan chain (muxed_scan)
+ 
+Chain 1: chain1 
+  scan_in:      scan_in 
+  scan_out:     scan_out   
+  shift_enable: scan_en (active high) 
+  clock_domain: clk_test (edge: rise)
+  length: 98
+    bit 1 	a_reg_reg[0]  <clk (rise)>  
+    bit 2 	a_reg_reg[1]  <clk (rise)>  
+    bit 3 	a_reg_reg[2]  <clk (rise)>  
+    bit 4 	a_reg_reg[3]  <clk (rise)>  
+    bit 5 	a_reg_reg[4]  <clk (rise)>  
+    bit 6 	a_reg_reg[5]  <clk (rise)>  
+    bit 7 	a_reg_reg[6]  <clk (rise)>  
+    bit 8 	a_reg_reg[7]  <clk (rise)>  
+    bit 9 	a_reg_reg[8]  <clk (rise)>  
+    bit 10 	a_reg_reg[9]  <clk (rise)>  
+    bit 11 	a_reg_reg[10]  <clk (rise)>  
+    bit 12 	a_reg_reg[11]  <clk (rise)>  
+    bit 13 	a_reg_reg[12]  <clk (rise)>  
+    bit 14 	a_reg_reg[13]  <clk (rise)>  
+    bit 15 	a_reg_reg[14]  <clk (rise)>  
+    bit 16 	a_reg_reg[15]  <clk (rise)>  
+    bit 17 	a_reg_reg[16]  <clk (rise)>  
+    bit 18 	a_reg_reg[17]  <clk (rise)>  
+    bit 19 	a_reg_reg[18]  <clk (rise)>  
+    bit 20 	a_reg_reg[19]  <clk (rise)>  
+    bit 21 	a_reg_reg[20]  <clk (rise)>  
+    bit 22 	a_reg_reg[21]  <clk (rise)>  
+    bit 23 	a_reg_reg[22]  <clk (rise)>  
+    bit 24 	a_reg_reg[23]  <clk (rise)>  
+    bit 25 	a_reg_reg[24]  <clk (rise)>  
+    bit 26 	a_reg_reg[25]  <clk (rise)>  
+    bit 27 	a_reg_reg[26]  <clk (rise)>  
+    bit 28 	a_reg_reg[27]  <clk (rise)>  
+    bit 29 	a_reg_reg[28]  <clk (rise)>  
+    bit 30 	a_reg_reg[29]  <clk (rise)>  
+    bit 31 	a_reg_reg[30]  <clk (rise)>  
+    bit 32 	a_reg_reg[31]  <clk (rise)>  
+    bit 33 	b_reg_reg[0]  <clk (rise)>  
+    bit 34 	b_reg_reg[1]  <clk (rise)>  
+    bit 35 	b_reg_reg[2]  <clk (rise)>  
+    bit 36 	b_reg_reg[3]  <clk (rise)>  
+    bit 37 	b_reg_reg[4]  <clk (rise)>  
+    bit 38 	b_reg_reg[5]  <clk (rise)>  
+    bit 39 	b_reg_reg[6]  <clk (rise)>  
+    bit 40 	b_reg_reg[7]  <clk (rise)>  
+    bit 41 	b_reg_reg[8]  <clk (rise)>  
+    bit 42 	b_reg_reg[9]  <clk (rise)>  
+    bit 43 	b_reg_reg[10]  <clk (rise)>  
+    bit 44 	b_reg_reg[11]  <clk (rise)>  
+    bit 45 	b_reg_reg[12]  <clk (rise)>  
+    bit 46 	b_reg_reg[13]  <clk (rise)>  
+    bit 47 	b_reg_reg[14]  <clk (rise)>  
+    bit 48 	b_reg_reg[15]  <clk (rise)>  
+    bit 49 	b_reg_reg[16]  <clk (rise)>  
+    bit 50 	b_reg_reg[17]  <clk (rise)>  
+    bit 51 	b_reg_reg[18]  <clk (rise)>  
+    bit 52 	b_reg_reg[19]  <clk (rise)>  
+    bit 53 	b_reg_reg[20]  <clk (rise)>  
+    bit 54 	b_reg_reg[21]  <clk (rise)>  
+    bit 55 	b_reg_reg[22]  <clk (rise)>  
+    bit 56 	b_reg_reg[23]  <clk (rise)>  
+    bit 57 	b_reg_reg[24]  <clk (rise)>  
+    bit 58 	b_reg_reg[25]  <clk (rise)>  
+    bit 59 	b_reg_reg[26]  <clk (rise)>  
+    bit 60 	b_reg_reg[27]  <clk (rise)>  
+    bit 61 	b_reg_reg[28]  <clk (rise)>  
+    bit 62 	b_reg_reg[29]  <clk (rise)>  
+    bit 63 	b_reg_reg[30]  <clk (rise)>  
+    bit 64 	b_reg_reg[31]  <clk (rise)>  
+    bit 65 	cin_reg_reg  <clk (rise)>  
+    bit 66 	cout_out_reg  <clk (rise)>  
+    bit 67 	sum_out_reg[0]  <clk (rise)>  
+    bit 68 	sum_out_reg[1]  <clk (rise)>  
+    bit 69 	sum_out_reg[2]  <clk (rise)>  
+    bit 70 	sum_out_reg[3]  <clk (rise)>  
+    bit 71 	sum_out_reg[4]  <clk (rise)>  
+    bit 72 	sum_out_reg[5]  <clk (rise)>  
+    bit 73 	sum_out_reg[6]  <clk (rise)>  
+    bit 74 	sum_out_reg[7]  <clk (rise)>  
+    bit 75 	sum_out_reg[8]  <clk (rise)>  
+    bit 76 	sum_out_reg[9]  <clk (rise)>  
+    bit 77 	sum_out_reg[10]  <clk (rise)>  
+    bit 78 	sum_out_reg[11]  <clk (rise)>  
+    bit 79 	sum_out_reg[12]  <clk (rise)>  
+    bit 80 	sum_out_reg[13]  <clk (rise)>  
+    bit 81 	sum_out_reg[14]  <clk (rise)>  
+    bit 82 	sum_out_reg[15]  <clk (rise)>  
+    bit 83 	sum_out_reg[16]  <clk (rise)>  
+    bit 84 	sum_out_reg[17]  <clk (rise)>  
+    bit 85 	sum_out_reg[18]  <clk (rise)>  
+    bit 86 	sum_out_reg[19]  <clk (rise)>  
+    bit 87 	sum_out_reg[20]  <clk (rise)>  
+    bit 88 	sum_out_reg[21]  <clk (rise)>  
+    bit 89 	sum_out_reg[22]  <clk (rise)>  
+    bit 90 	sum_out_reg[23]  <clk (rise)>  
+    bit 91 	sum_out_reg[24]  <clk (rise)>  
+    bit 92 	sum_out_reg[25]  <clk (rise)>  
+    bit 93 	sum_out_reg[26]  <clk (rise)>  
+    bit 94 	sum_out_reg[27]  <clk (rise)>  
+    bit 95 	sum_out_reg[28]  <clk (rise)>  
+    bit 96 	sum_out_reg[29]  <clk (rise)>  
+    bit 97 	sum_out_reg[30]  <clk (rise)>  
+    bit 98 	sum_out_reg[31]  <clk (rise)>  
+------------------------
+

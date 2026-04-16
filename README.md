@@ -175,7 +175,7 @@ ATPG (Planned)
 The following schematic illustrates the synthesized gate-level implementation of the 32-bit Ripple Carry Adder after technology mapping and DFT insertion using Cadence Genus.
 
 <p align="center">
-  <img src="images/rca32_schematic.png" alt="RCA32 Schematic" width="900"/>
+  <img src="schematics/schematic_32bit_rca.png" alt="RCA32 Schematic" width="900"/>
 </p>
 
 ---

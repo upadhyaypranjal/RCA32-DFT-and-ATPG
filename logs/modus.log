@@ -1,0 +1,1335 @@
+
+ 
+Copyright (C) 2002-2020 Cadence Design Systems Inc. All Rights Reserved. 
+Cadence and the Cadence logo are registered trademarks and Modus is a trademark 
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+Type 'help legal_notices' for third party license notices. 
+Version : 20.12-s002_1, built Feb 26 2021 (linux26_64)
+Options : 
+Date    : Thu, April 16 13:20:45 2026
+Host    : vlsi-3.iiitk.ac.in (x86_64 Linux 3.10.0-1160.el7.x86_64) (6*Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz 12288KB)
+OS      : Red Hat Enterprise Linux Server release 7.9 (Maipo)
+@modus:root:/ 1> source run_modus_atpg.tcl
+#@ Begin verbose source run_modus_atpg.tcl
+@file(run_modus_atpg.tcl) 1: puts "\n============================================="
+
+=============================================
+@file(run_modus_atpg.tcl) 2: puts "Starting Modus Test Run Script for rca_32bit"
+Starting Modus Test Run Script for rca_32bit
+@file(run_modus_atpg.tcl) 3: puts "=============================================\n"
+=============================================
+
+@file(run_modus_atpg.tcl) 5: set WORKDIR ./
+@file(run_modus_atpg.tcl) 6: set CELL rca_32bit
+@file(run_modus_atpg.tcl) 7: set RESULTS_DIR $WORKDIR/results
+@file(run_modus_atpg.tcl) 8: file mkdir $RESULTS_DIR
+@file(run_modus_atpg.tcl) 10: set NETLIST $WORKDIR/rca_32bit_post_dft.v
+@file(run_modus_atpg.tcl) 11: set LIBRARY "/home/install/FOUNDRY/digital/90nm/dig/vlog/typical.v"
+@file(run_modus_atpg.tcl) 12: set TESTMODE FULLSCAN
+@file(run_modus_atpg.tcl) 14: set ASSIGNFILE ""
+@file(run_modus_atpg.tcl) 15: set MODEDEF ""
+@file(run_modus_atpg.tcl) 16: catch {
+    set ASSIGNFILE [exec bash -c "find $WORKDIR -type f -name \"*.pinassign\" | head -n 1"]
+    set MODEDEF [exec bash -c "find $WORKDIR -type f -name \"*.modedef\" | head -n 1"]
+}
+@file(run_modus_atpg.tcl) 21: puts ">>> Building Test Model"
+>>> Building Test Model
+@file(run_modus_atpg.tcl) 22: build_model -cell $CELL -workdir $WORKDIR -designsource $NETLIST -techlib $LIBRARY -designtop $CELL -allowmissingmodules yes 
+Starting Command: build_model 
+
+INFO (TDA-015): Log File: .//testresults/logs/log_build_model_041626132100-109939000 [end TDA_015]
+
+INFO (TEI-195): Build Model - Controller starting: [end TEI_195] 
+
+
+Search Order  1:  ".//rca_32bit_post_dft.v"
+Search Order  2:  "/home/install/FOUNDRY/digital/90nm/dig/vlog/typical.v"
+
+
+
+Reading Verilog data from .//rca_32bit_post_dft.v
+
+Verilog Parser complete - 1 modules, 0 gates, 0 user defined primitives.
+
+
+Reading Verilog data from /home/install/FOUNDRY/digital/90nm/dig/vlog/typical.v
+
+Verilog Parser complete - 480 modules, 1855 gates, 3 user defined primitives.
+
+
+
+INFO (TEI-196): Build Model - Hierarchical Model Build starting: [end TEI_196] 
+
+WARNING (TEI-110): Pin 'NOTIFIER' of 'cell udp_dff' has no external net connection for any usage in the design. Cell contents file: '/home/install/FOUNDRY/digital/90nm/dig/vlog/typical.v'.  [end TEI_110] 
+
+
+Number of blocks in the hierarchical model is: 3,044.
+
+Number of technology library cell instances in the hierarchical model is: 283.
+
+
+INFO (TEI-197): Build Model - Hierarchical Model Build completed. [end TEI_197] 
+
+
+
+INFO (TEI-198): Build Model - Flat Model Build starting: [end TEI_198] 
+
+ defaultTIE = X
+ defaultDFN = T
+
+
+INFO (TLM-055): Design Summary
+                --------------
+
+Hierarchical Model:                  Flattened Model:
+          3,044  Blocks                       2,212  Blocks
+          9,608  Pins                         2,212  Nodes
+          5,380  Nets
+
+Primary Inputs:                      Primary Outputs:
+         70  Input Only                        34  Output Only
+          0  Input/Output                       0  Input/Output
+         70  Total Inputs                      34  Total Outputs
+
+Tied Nets:                           Dotted Nets:
+        196  Tied to 0                          0  Two-State
+         98  Tied to 1                          0  Three-State
+          0  Tied to X                          0  Total Dotted Nets
+        294  Total Tied Nets
+
+Selected Primitive Functions:
+          0  Clock Chopper (CHOP) primitives 
+          0  RAMs
+          0  ROMs
+          0  TSDs
+          0  Resistors
+          0  Transistors
+        162  MUX2s
+          0  Latches
+
+
+         98  Rising  Edge Flop w/Set-Dominant and Reset Port
+         98  Total Flops
+
+        283  Technology Library Cell Instances
+
+[end TLM_055] 
+Optimization removed logic for 2 of 12 cells in this design.
+
+Optimization removed a total of 0 tied Latch Ports.
+Optimization removed a total of 98 non-controlling inputs.
+Optimization removed a total of 294 dangling logic nodes.
+
+
+
+INFO (TEI-199): Build Model - Flat Model Build completed.  [end TEI_199] 
+
+
+INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
+
+                  Total Memory =          101,355,184  bytes
+
+                      CPU Time =    0:00:00.61
+                  Elapsed Time =    0:00:01.27                    [end TDA_001]
+
+
+
+INFO (TEI-200): Build Model - Controller completed. [end TEI_200] 
+
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (TEI-195): Build Model - Controller starting:  
+      1 INFO (TEI-196): Build Model - Hierarchical Model Build starting:  
+      1 INFO (TEI-197): Build Model - Hierarchical Model Build completed.  
+      1 INFO (TEI-198): Build Model - Flat Model Build starting:  
+      1 INFO (TEI-199): Build Model - Flat Model Build completed.   
+      1 INFO (TEI-200): Build Model - Controller completed.  
+      1 INFO (TLM-055): Design Summary
+
+  WARNING Messages...
+      1 WARNING (TEI-110): Pin 'NOTIFIER' of 'cell udp_dff' has no external net connection for any usage in the design. Cell contents file: '/home/install/FOUNDRY/digital/90nm/dig/vlog/typical.v'.   
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------
+@file(run_modus_atpg.tcl) 24: puts ">>> Building Test Mode $TESTMODE"
+>>> Building Test Mode FULLSCAN
+@file(run_modus_atpg.tcl) 25: if {$MODEDEF ne ""} {
+    build_testmode -workdir $WORKDIR -testmode $TESTMODE -modedef $MODEDEF -assignfile $ASSIGNFILE 
+} else {
+    build_testmode -workdir $WORKDIR -testmode $TESTMODE -assignfile $ASSIGNFILE 
+}
+Starting Command: build_testmode 
+
+INFO (TDA-015): Log File: .//testresults/logs/log_build_testmode_FULLSCAN_041626132104-059927000 [end TDA_015]
+
+MODEDEFPATH set to:  /home/install/MODUS201/tools.lnx86/tb/defaults/rules/modedef 
+TDRPATH set to: /home/install/MODUS201/tools.lnx86/tb/defaults/rules/tdr 
+
+Modus Build Test Mode(s) beginning...
+
+   TDR NAME      =  dummy.tdr 
+
+   SCAN_TYPE     =  GSD 
+   BOUNDARY      =  NONE 
+   IN            =  PI 
+   OUT           =  PO 
+
+INFO (TTM-391): A default modeinit sequence will be generated.   [end TTM_391] 
+INFO (TTM-387): A default scanop sequence will be generated.   [end TTM_387] 
+INFO (THM-814): Testmode contains 95.52% active logic,  4.48% inactive logic and  0.00% constraint logic.   [end THM_814] 
+WARNING (TTM-347): There is less than 96 percent active logic in this test mode.  Global fault
+           coverage is impacted when too little of the logic is visible.   [end TTM_347] 
+INFO (TTM-357): There are 1 scan chains which are controllable and observable.   [end TTM_357] 
+
+There are no PPIs for Test Mode:  FULLSCAN
+
+Information for Test Mode:  FULLSCAN
+-------------------------
+
+         Scan Type = GSD
+
+
+ Latch Summary for Test Mode:  FULLSCAN
+ Latch Type                #Active   #Inactive       Total
+ ---------------------   ---------   ---------   ---------
+ Test Constraint (TC)            0           0           0 
+ Scan Enable     (SE)            0           0           0 
+ Fixed Value     (FV)            0           0           0 
+ Floating                        0           0           0 
+ Finite State    (FSM)           0           0           0 
+
+WARNING (TTM-809): Test mode FULLSCAN has been created, WARNINGs have been generated -
+           see preceding message(s) for details. [end TTM_809] 
+
+Test Function Pin Information for Test Mode:  FULLSCAN
+-------------------------------------------
+
+          2  SC    (System  Clock)             Pins
+          0  PC    (P Shift Clock)             Pins
+          1  EC    (E Shift Clock)             Pins
+
+          0  OSC   (Oscillator)                Pins
+
+          0  TI    (Test Inhibit)              Pins
+          1  SE    (Scan Enable)               Pins
+          0  CI    (Clock Isolation)           Pins
+          0  OI    (Output Inhibit)            Pins
+
+          1  SI    (Scan Input)                Pins
+          1  SO    (Scan Output)               Pins
+
+  Pin Index    Type Test Function                         Pin Name / Net Name
+  ---------    ---- ----------------------------------    -------------------
+         66      PI  -SC                                  reset / reset
+         65      PI  -EC  -SC                             clk / clk
+         67      PI  +SE                                  scan_en / scan_en
+         68      PI   SI                                  scan_in / scan_in
+         71      PO   SO                                  scan_out / scan_out
+
+
+
+Modus Build Test Mode(s) completed. Highest severity is (WARNING).
+
+            Cumulative Time in hours:minutes:seconds:
+                   CPU Time =   0:00:00.08
+               Elapsed Time =   0:00:01.71
+
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (THM-814): Testmode contains 95.52% active logic,  4.48% inactive logic and  0.00% constraint logic.    
+      1 INFO (TTM-357): There are 1 scan chains which are controllable and observable.    
+      1 INFO (TTM-387): A default scanop sequence will be generated.    
+      1 INFO (TTM-391): A default modeinit sequence will be generated.    
+
+  WARNING Messages...
+      1 WARNING (TTM-347): There is less than 96 percent active logic in this test mode.  Global fault
+      1 WARNING (TTM-809): Test mode FULLSCAN has been created, WARNINGs have been generated -
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------
+@file(run_modus_atpg.tcl) 31: puts ">>> Verifying & Reporting Test Structures..."
+>>> Verifying & Reporting Test Structures...
+@file(run_modus_atpg.tcl) 32: verify_test_structures -workdir $WORKDIR -testmode $TESTMODE > $RESULTS_DIR/verify_structures.rpt
+@file(run_modus_atpg.tcl) 33: report_test_structures -workdir $WORKDIR -testmode $TESTMODE > $RESULTS_DIR/test_structures.rpt
+@file(run_modus_atpg.tcl) 35: puts ">>> Building Test Fault Model..."
+>>> Building Test Fault Model...
+@file(run_modus_atpg.tcl) 36: build_faultmodel -fullfault yes
+INFO (TUI-772): The command 'build_faultmodel' will release the currently acquired resources. Please set the context and circuit state after completion of the command. [end TUI_772] 
+
+Starting Command: build_faultmodel 
+
+INFO (TDA-015): Log File: ./testresults/logs/log_build_faultmodel_041626132111-151441000 [end TDA_015]
+
+INFO (TFM-099): Build Fault Model started.  [end TFM_099] 
+INFO (TFM-102): Creating faultModel file ./tbdata/faultModel.  [end TFM_102] 
+
+Global Ignored Static Fault Count               198
+Global Ignored Dynamic Fault Count              394
+
+
+                            Global Statistics
+
+                    ATCov  ----------------------- Global Faults --------------------------
+                   Global        Total       Tested     Possibly    Redundant     Untested
+
+Total Static         0.00         3762            0            0            0         3762
+Collapsed Static     0.00         2852            0            0            0         2852
+PI Static            0.00          138            0            0            0          138
+PO Static            0.00           68            0            0            0           68
+
+Total Dynamic        0.00         3818            0            0            0         3818
+Collapsed Dynamic    0.00         2488            0            0            0         2488
+PI Dynamic           0.00          138            0            0            0          138
+PO Dynamic           0.00           68            0            0            0           68
+
+Parametric        
+
+IDDq                 0.00         3762            0                                   3762
+
+
+
+INFO (TFM-103): Creating faultStatus file ./tbdata/faultStatus.  [end TFM_103] 
+
+                           Testmode Statistics: FULLSCAN
+
+                 ---- ATCov ---- ------------------------ Testmode Faults ----------------------- ------------------------- Global Faults ------------------------
+                 Testmode Global        Total       Tested     Possibly    Redundant     Untested        Total       Tested     Possibly    Redundant     Untested
+
+Total Static         0.00   0.00         3762            0            0            0         3762         3762            0            0            0         3762
+Collapsed Static     0.00   0.00         2852            0            0            0         2852         2852            0            0            0         2852
+PI Static            0.00   0.00          138            0            0            0          138          138            0            0            0          138
+PO Static            0.00   0.00           68            0            0            0           68           68            0            0            0           68
+
+Total Dynamic        0.00   0.00         3210            0            0            0         3210         3818            0            0            0         3818
+Collapsed Dynamic    0.00   0.00         2076            0            0            0         2076         2488            0            0            0         2488
+PI Dynamic           0.00   0.00          134            0            0            0          134          138            0            0            0          138
+PO Dynamic           0.00   0.00           68            0            0            0           68           68            0            0            0           68
+
+Parametric        
+
+IDDq                 0.00   0.00         3762            0                                   3762         3762            0                                   3762
+
+Path                 0.00   0.00            0            0                                      0            0            0                                      0
+
+
+
+INFO (TFM-704): Maximum Global Test Coverage Statistics: 
+
+                  %Active      #Faults      #Active    #Inactive
+Total Static       100.00         3762         3762            0
+Collapsed Static   100.00         2852         2852            0
+PI Static          100.00          138          138            0
+PO Static          100.00           68           68            0
+
+Total Dynamic       84.08         3818         3210          608
+Collapsed Dynamic   83.44         2488         2076          412
+PI Dynamic          97.10          138          134            4
+PO Dynamic         100.00           68           68            0
+
+Parametric        
+
+There are 1 test mode(s) defined:
+      FULLSCAN
+
+[end TFM_704]
+INFO (TFM-109): Build Fault Model has completed with highest level severity message of INFO.  [end TFM_109] 
+
+INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
+
+                  Total Memory =            7,633,856  bytes
+
+                      CPU Time =    0:00:00.00
+                  Elapsed Time =    0:00:00.17                    [end TDA_001]
+
+     Date Ended:  Thursday Apr 16 13:21:12 2026  IST
+
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (TFM-099): Build Fault Model started.   
+      1 INFO (TFM-102): Creating faultModel file ./tbdata/faultModel.   
+      1 INFO (TFM-103): Creating faultStatus file ./tbdata/faultStatus.   
+      1 INFO (TFM-109): Build Fault Model has completed with highest level severity message of INFO.   
+      1 INFO (TFM-704): Maximum Global Test Coverage Statistics: 
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------
+@file(run_modus_atpg.tcl) 38: puts ">>> Generating ATPG Tests..."
+>>> Generating ATPG Tests...
+@file(run_modus_atpg.tcl) 39: create_scanchain_tests -testmode $TESTMODE -experiment scan
+Starting Command: create_scanchain_tests 
+
+INFO (TDA-015): Log File: ./testresults/logs/log_create_scanchain_tests_FULLSCAN_scan_041626132113-476484000 [end TDA_015]
+
+
+
+****************************************************************************************************
+Coverage Definitions:
+ #Faults  : Number of Active Faults (observable).
+ #Tested  : Number of Active Faults marked tested.
+ #Possibly: Number of Active Faults marked possibly tested
+            (good value is 0 or 1; fault value is X).
+ #Redund  : Number of Active Faults untestable due to redundancy.
+ #Untested: Number of Active Faults untested.
+ %TCov  (%Test Coverage)                      : #Tested / #Faults
+ %ATCov (%Adjusted TCov)                      : #Tested / (#Faults-#Redund)
+****************************************************************************************************
+****************************************************************************************************
+                           Testmode Statistics: FULLSCAN
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                  3762            0            0            0         3762   0.00   0.00
+Total Dynamic                 3210            0            0            0         3210   0.00   0.00
+
+                            Global Statistics
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                  3762            0            0            0         3762   0.00   0.00
+Total Dynamic                 3818            0            0            0         3818   0.00   0.00
+****************************************************************************************************
+
+*************************************************************************************************************
+INFO (TTC-110): Starting Scan Test generation                                                   [end TTC_110] 
+
+INFO (TDA-220):   --- Tests ---   Faults     ---- ATCov ----   -- Faults --   - Elapsed Time -  [end TDA_220] 
+INFO (TDA-220):    Sim.    Eff.  Detected    Tmode    Global     Untested                       [end TDA_220] 
+INFO (TDA-220):      1       1       2042    54.28%   54.28%         1720           00:01.09    [end TDA_220] 
+INFO (TTC-110): Ending Scan Test generation                                                     [end TTC_110] 
+*************************************************************************************************************
+
+****************************************************************************************************
+                           Testmode Statistics: FULLSCAN
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                  3762         2046            0            0         1716  54.39  54.39
+Total Dynamic                 3210         1378            0            0         1832  42.93  42.93
+
+                            Global Statistics
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                  3762         2046            0            0         1716  54.39  54.39
+Total Dynamic                 3818         1378            0            0         2440  36.09  36.09
+****************************************************************************************************
+
+
+              ----Final Pattern Statistics----
+
+ Test Section Type                       # Test Sequences
+----------------------------------------------------------
+ Scan                                           1
+----------------------------------------------------------
+ Total                                          1
+
+(I) File(s) generated (bytes and name):
+
+          73728 ./tbdata/faultStatus.FULLSCAN.scan
+           4004 ./tbdata/TBDbin.FULLSCAN.scan
+
+INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
+
+                  Total Memory =            6,399,120  bytes
+
+                      CPU Time =    0:00:00.05
+                  Elapsed Time =    0:00:01.36                    [end TDA_001]
+
+     Date Ended:  Thursday Apr 16 13:21:14 2026  IST
+
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      3 INFO (TDA-220):   --- Tests ---   Faults     ---- ATCov ----   -- Faults --   - Elapsed Time -   
+      2 INFO (TTC-110): Starting Scan Test generation                                                    
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------
+@file(run_modus_atpg.tcl) 40: create_logic_tests -testmode $TESTMODE -experiment logic
+Starting Command: create_logic_tests 
+
+INFO (TDA-015): Log File: ./testresults/logs/log_create_logic_tests_FULLSCAN_logic_041626132116-134739000 [end TDA_015]
+
+
+
+****************************************************************************************************
+Coverage Definitions:
+ #Faults  : Number of Active Faults (observable).
+ #Tested  : Number of Active Faults marked tested.
+ #Possibly: Number of Active Faults marked possibly tested
+            (good value is 0 or 1; fault value is X).
+ #Redund  : Number of Active Faults untestable due to redundancy.
+ #Untested: Number of Active Faults untested.
+ %TCov  (%Test Coverage)                      : #Tested / #Faults
+ %ATCov (%Adjusted TCov)                      : #Tested / (#Faults-#Redund)
+****************************************************************************************************
+****************************************************************************************************
+                           Testmode Statistics: FULLSCAN
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                  3762            0            0            0         3762   0.00   0.00
+Total Dynamic                 3210            0            0            0         3210   0.00   0.00
+
+                            Global Statistics
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                  3762            0            0            0         3762   0.00   0.00
+Total Dynamic                 3818            0            0            0         3818   0.00   0.00
+****************************************************************************************************
+
+*************************************************************************************************************
+INFO (TTC-110): Starting Scan Test generation                                                   [end TTC_110] 
+
+INFO (TDA-220):   --- Tests ---   Faults     ---- ATCov ----   -- Faults --   - Elapsed Time -  [end TDA_220] 
+INFO (TDA-220):    Sim.    Eff.  Detected    Tmode    Global     Untested                       [end TDA_220] 
+INFO (TDA-220):      1       1       2042    54.28%   54.28%         1720           00:01.02    [end TDA_220] 
+INFO (TTC-110): Ending Scan Test generation                                                     [end TTC_110] 
+*************************************************************************************************************
+
+*************************************************************************************************************
+INFO (TTC-110): Starting Reset/Set Test Generation                                              [end TTC_110] 
+
+INFO (TDA-220):   --- Tests ---   Faults     ---- ATCov ----   -- Faults --   - Elapsed Time -  [end TDA_220] 
+INFO (TDA-220):    Sim.    Eff.  Detected    Tmode    Global     Untested                       [end TDA_220] 
+INFO (TDA-220):      1       1        198    59.54%   59.54%         1522           00:01.03    [end TDA_220] 
+INFO (TTC-110): Ending Reset/Set Test Generation                                                [end TTC_110] 
+*************************************************************************************************************
+
+*************************************************************************************************************
+INFO (TTC-110): Starting Static Logic Test generation                                           [end TTC_110] 
+
+INFO (TDA-220):   --- Tests ---   Faults     ---- ATCov ----   -- Faults --   - Elapsed Time -  [end TDA_220] 
+INFO (TDA-220):    Sim.    Eff.  Detected    Tmode    Global     Untested                       [end TDA_220] 
+INFO (TDA-220):     16      16       1520    99.95%   99.95%            2           00:01.07    [end TDA_220] 
+INFO (TDA-220):     18      16          0    99.95%   99.95%            2           00:01.07    [end TDA_220] 
+INFO (TDA-220):     19      17          2    99.99%   99.99%            0           00:01.07    [end TDA_220] 
+INFO (TTC-110): Ending Static Logic Test generation - processing limit reached                  [end TTC_110] 
+*************************************************************************************************************
+
+****************************************************************************************************
+                           Testmode Statistics: FULLSCAN
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                  3762         3762            0            0            0 100.00 100.00
+Total Dynamic                 3210         1378            0            0         1832  42.93  42.93
+
+                            Global Statistics
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                  3762         3762            0            0            0 100.00 100.00
+Total Dynamic                 3818         1378            0            0         2440  36.09  36.09
+****************************************************************************************************
+
+
+              ----Final Pattern Statistics----
+
+ Test Section Type                       # Test Sequences
+----------------------------------------------------------
+ Scan                                           1
+ Logic                                          18
+----------------------------------------------------------
+ Total                                          19
+
+(I) File(s) generated (bytes and name):
+
+          73728 ./tbdata/faultStatus.FULLSCAN.logic
+          42165 ./tbdata/TBDbin.FULLSCAN.logic
+
+INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
+
+                  Total Memory =            7,139,088  bytes
+
+                      CPU Time =    0:00:00.08
+                  Elapsed Time =    0:00:01.31                    [end TDA_001]
+
+     Date Ended:  Thursday Apr 16 13:21:17 2026  IST
+
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+     11 INFO (TDA-220):   --- Tests ---   Faults     ---- ATCov ----   -- Faults --   - Elapsed Time -   
+      6 INFO (TTC-110): Starting Scan Test generation                                                    
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------
+@file(run_modus_atpg.tcl) 42: redirect $RESULTS_DIR/test_coverage_logic.rpt {
+    report_statistics -experiment logic
+}
+@file(run_modus_atpg.tcl) 46: puts ">>> Writing Verilog Vectors..."
+>>> Writing Verilog Vectors...
+@file(run_modus_atpg.tcl) 47: write_vectors -testmode $TESTMODE -inexperiment logic -language verilog -scanformat serial -outputfilename $RESULTS_DIR/test_results.v
+Starting Command: write_vectors 
+
+INFO (TDA-015): Log File: ./testresults/logs/log_write_vectors_FULLSCAN_logic_041626132118-709680000 [end TDA_015]
+
+INFO (TVE-001): Verilog write vectors started.   [end TVE_001] 
+INFO (TVE-103): There was no specified TEST offset for this clock 'pin clk'.  A default clock offset of 8.000000 ns will be used.   [end TVE_103] 
+INFO (TVE-103): There was no specified SCAN offset for this clock 'pin clk'.  A default clock offset of 16.000000 ns will be used.   [end TVE_103] 
+INFO (TVE-103): There was no specified TEST offset for this clock 'pin reset'.  A default clock offset of 8.000000 ns will be used.   [end TVE_103] 
+INFO (TVE-004): Reading test section 1.1.  Test section type equals scan.   [end TVE_004] 
+ERROR (TVE-951): Failed to open the file: ./testresults/verilog/.//results/test_results.v.cyclemap.  [end TVE_951] 
+ fopen system error information:  Open Permanent File ./testresults/verilog/.//results/test_results.v.cyclemap (File Description = CycleMap): No such file or directory
+
+INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
+
+                  Total Memory =            6,663,824  bytes
+
+                      CPU Time =    0:00:00.01
+                  Elapsed Time =    0:00:00.05                    [end TDA_001]
+
+     Date Ended:  Thursday Apr 16 13:21:19 2026  IST
+
+INFO (TVE-002): Verilog write vectors has terminated due to Errors.   [end TVE_002] 
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (TVE-001): Verilog write vectors started.    
+      1 INFO (TVE-002): Verilog write vectors has terminated due to Errors.    
+      1 INFO (TVE-004): Reading test section 1.1.  Test section type equals scan.    
+      3 INFO (TVE-103): There was no specified TEST offset for this clock 'pin clk'.  A default clock offset of 8.000000 ns will be used.    
+
+  ERROR Messages...
+      1 ERROR (TVE-951): Failed to open the file: ./testresults/verilog/.//results/test_results.v.cyclemap.   
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------
+File 'run_modus_atpg.tcl' line 47: errors out.
+#@ End verbose source run_modus_atpg.tcl
+@modus:root:/ 2> source run_modus_atpg.tcl
+#@ Begin verbose source run_modus_atpg.tcl
+@file(run_modus_atpg.tcl) 1: puts "\n============================================="
+
+=============================================
+@file(run_modus_atpg.tcl) 2: puts "Starting Modus Test Run Script for rca_32bit"
+Starting Modus Test Run Script for rca_32bit
+@file(run_modus_atpg.tcl) 3: puts "=============================================\n"
+=============================================
+
+@file(run_modus_atpg.tcl) 5: set WORKDIR ./
+@file(run_modus_atpg.tcl) 6: set CELL rca_32bit
+@file(run_modus_atpg.tcl) 7: set RESULTS_DIR $WORKDIR/results
+@file(run_modus_atpg.tcl) 8: file mkdir $RESULTS_DIR
+@file(run_modus_atpg.tcl) 10: set NETLIST $WORKDIR/rca_32bit_post_dft.v
+@file(run_modus_atpg.tcl) 11: set LIBRARY "/home/install/FOUNDRY/digital/90nm/dig/vlog/typical.v"
+@file(run_modus_atpg.tcl) 12: set TESTMODE FULLSCAN
+@file(run_modus_atpg.tcl) 14: set ASSIGNFILE ""
+@file(run_modus_atpg.tcl) 15: set MODEDEF ""
+@file(run_modus_atpg.tcl) 16: catch {
+    set ASSIGNFILE [exec bash -c "find $WORKDIR -type f -name \"*.pinassign\" | head -n 1"]
+    set MODEDEF [exec bash -c "find $WORKDIR -type f -name \"*.modedef\" | head -n 1"]
+}
+@file(run_modus_atpg.tcl) 21: puts ">>> Building Test Model"
+>>> Building Test Model
+@file(run_modus_atpg.tcl) 22: build_model -cell $CELL -workdir $WORKDIR -designsource $NETLIST -techlib $LIBRARY -designtop $CELL -allowmissingmodules yes 
+Starting Command: build_model 
+
+INFO (TDA-015): Log File: .//testresults/logs/log_build_model_041626132201-741660000 [end TDA_015]
+
+INFO (TEI-195): Build Model - Controller starting: [end TEI_195] 
+
+
+Search Order  1:  ".//rca_32bit_post_dft.v"
+Search Order  2:  "/home/install/FOUNDRY/digital/90nm/dig/vlog/typical.v"
+
+
+
+Reading Verilog data from .//rca_32bit_post_dft.v
+
+Verilog Parser complete - 1 modules, 0 gates, 0 user defined primitives.
+
+
+Reading Verilog data from /home/install/FOUNDRY/digital/90nm/dig/vlog/typical.v
+
+Verilog Parser complete - 480 modules, 1855 gates, 3 user defined primitives.
+
+
+
+INFO (TEI-196): Build Model - Hierarchical Model Build starting: [end TEI_196] 
+
+WARNING (TEI-110): Pin 'NOTIFIER' of 'cell udp_dff' has no external net connection for any usage in the design. Cell contents file: '/home/install/FOUNDRY/digital/90nm/dig/vlog/typical.v'.  [end TEI_110] 
+
+
+Number of blocks in the hierarchical model is: 3,044.
+
+Number of technology library cell instances in the hierarchical model is: 283.
+
+
+INFO (TEI-197): Build Model - Hierarchical Model Build completed. [end TEI_197] 
+
+
+
+INFO (TEI-198): Build Model - Flat Model Build starting: [end TEI_198] 
+
+ defaultTIE = X
+ defaultDFN = T
+
+
+INFO (TLM-055): Design Summary
+                --------------
+
+Hierarchical Model:                  Flattened Model:
+          3,044  Blocks                       2,212  Blocks
+          9,608  Pins                         2,212  Nodes
+          5,380  Nets
+
+Primary Inputs:                      Primary Outputs:
+         70  Input Only                        34  Output Only
+          0  Input/Output                       0  Input/Output
+         70  Total Inputs                      34  Total Outputs
+
+Tied Nets:                           Dotted Nets:
+        196  Tied to 0                          0  Two-State
+         98  Tied to 1                          0  Three-State
+          0  Tied to X                          0  Total Dotted Nets
+        294  Total Tied Nets
+
+Selected Primitive Functions:
+          0  Clock Chopper (CHOP) primitives 
+          0  RAMs
+          0  ROMs
+          0  TSDs
+          0  Resistors
+          0  Transistors
+        162  MUX2s
+          0  Latches
+
+
+         98  Rising  Edge Flop w/Set-Dominant and Reset Port
+         98  Total Flops
+
+        283  Technology Library Cell Instances
+
+[end TLM_055] 
+Optimization removed logic for 2 of 12 cells in this design.
+
+Optimization removed a total of 0 tied Latch Ports.
+Optimization removed a total of 98 non-controlling inputs.
+Optimization removed a total of 294 dangling logic nodes.
+
+
+
+INFO (TEI-199): Build Model - Flat Model Build completed.  [end TEI_199] 
+
+
+INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
+
+                  Total Memory =          101,422,064  bytes
+
+                      CPU Time =    0:00:00.63
+                  Elapsed Time =    0:00:01.27                    [end TDA_001]
+
+
+
+INFO (TEI-200): Build Model - Controller completed. [end TEI_200] 
+
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (TEI-195): Build Model - Controller starting:  
+      1 INFO (TEI-196): Build Model - Hierarchical Model Build starting:  
+      1 INFO (TEI-197): Build Model - Hierarchical Model Build completed.  
+      1 INFO (TEI-198): Build Model - Flat Model Build starting:  
+      1 INFO (TEI-199): Build Model - Flat Model Build completed.   
+      1 INFO (TEI-200): Build Model - Controller completed.  
+      1 INFO (TLM-055): Design Summary
+
+  WARNING Messages...
+      1 WARNING (TEI-110): Pin 'NOTIFIER' of 'cell udp_dff' has no external net connection for any usage in the design. Cell contents file: '/home/install/FOUNDRY/digital/90nm/dig/vlog/typical.v'.   
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------
+@file(run_modus_atpg.tcl) 24: puts ">>> Building Test Mode $TESTMODE"
+>>> Building Test Mode FULLSCAN
+@file(run_modus_atpg.tcl) 25: if {$MODEDEF ne ""} {
+    build_testmode -workdir $WORKDIR -testmode $TESTMODE -modedef $MODEDEF -assignfile $ASSIGNFILE 
+} else {
+    build_testmode -workdir $WORKDIR -testmode $TESTMODE -assignfile $ASSIGNFILE 
+}
+Starting Command: build_testmode 
+
+INFO (TDA-015): Log File: .//testresults/logs/log_build_testmode_FULLSCAN_041626132205-733241000 [end TDA_015]
+
+MODEDEFPATH set to:  /home/install/MODUS201/tools.lnx86/tb/defaults/rules/modedef 
+TDRPATH set to: /home/install/MODUS201/tools.lnx86/tb/defaults/rules/tdr 
+
+Modus Build Test Mode(s) beginning...
+
+   TDR NAME      =  dummy.tdr 
+
+   SCAN_TYPE     =  GSD 
+   BOUNDARY      =  NONE 
+   IN            =  PI 
+   OUT           =  PO 
+
+INFO (TTM-391): A default modeinit sequence will be generated.   [end TTM_391] 
+INFO (TTM-387): A default scanop sequence will be generated.   [end TTM_387] 
+INFO (THM-814): Testmode contains 95.52% active logic,  4.48% inactive logic and  0.00% constraint logic.   [end THM_814] 
+WARNING (TTM-347): There is less than 96 percent active logic in this test mode.  Global fault
+           coverage is impacted when too little of the logic is visible.   [end TTM_347] 
+INFO (TTM-357): There are 1 scan chains which are controllable and observable.   [end TTM_357] 
+
+There are no PPIs for Test Mode:  FULLSCAN
+
+Information for Test Mode:  FULLSCAN
+-------------------------
+
+         Scan Type = GSD
+
+
+ Latch Summary for Test Mode:  FULLSCAN
+ Latch Type                #Active   #Inactive       Total
+ ---------------------   ---------   ---------   ---------
+ Test Constraint (TC)            0           0           0 
+ Scan Enable     (SE)            0           0           0 
+ Fixed Value     (FV)            0           0           0 
+ Floating                        0           0           0 
+ Finite State    (FSM)           0           0           0 
+
+WARNING (TTM-809): Test mode FULLSCAN has been created, WARNINGs have been generated -
+           see preceding message(s) for details. [end TTM_809] 
+
+Test Function Pin Information for Test Mode:  FULLSCAN
+-------------------------------------------
+
+          2  SC    (System  Clock)             Pins
+          0  PC    (P Shift Clock)             Pins
+          1  EC    (E Shift Clock)             Pins
+
+          0  OSC   (Oscillator)                Pins
+
+          0  TI    (Test Inhibit)              Pins
+          1  SE    (Scan Enable)               Pins
+          0  CI    (Clock Isolation)           Pins
+          0  OI    (Output Inhibit)            Pins
+
+          1  SI    (Scan Input)                Pins
+          1  SO    (Scan Output)               Pins
+
+  Pin Index    Type Test Function                         Pin Name / Net Name
+  ---------    ---- ----------------------------------    -------------------
+         66      PI  -SC                                  reset / reset
+         65      PI  -EC  -SC                             clk / clk
+         67      PI  +SE                                  scan_en / scan_en
+         68      PI   SI                                  scan_in / scan_in
+         71      PO   SO                                  scan_out / scan_out
+
+
+
+Modus Build Test Mode(s) completed. Highest severity is (WARNING).
+
+            Cumulative Time in hours:minutes:seconds:
+                   CPU Time =   0:00:00.08
+               Elapsed Time =   0:00:02.75
+
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (THM-814): Testmode contains 95.52% active logic,  4.48% inactive logic and  0.00% constraint logic.    
+      1 INFO (TTM-357): There are 1 scan chains which are controllable and observable.    
+      1 INFO (TTM-387): A default scanop sequence will be generated.    
+      1 INFO (TTM-391): A default modeinit sequence will be generated.    
+
+  WARNING Messages...
+      1 WARNING (TTM-347): There is less than 96 percent active logic in this test mode.  Global fault
+      1 WARNING (TTM-809): Test mode FULLSCAN has been created, WARNINGs have been generated -
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------
+@file(run_modus_atpg.tcl) 31: puts ">>> Verifying & Reporting Test Structures..."
+>>> Verifying & Reporting Test Structures...
+@file(run_modus_atpg.tcl) 32: verify_test_structures -workdir $WORKDIR -testmode $TESTMODE > $RESULTS_DIR/verify_structures.rpt
+@file(run_modus_atpg.tcl) 33: report_test_structures -workdir $WORKDIR -testmode $TESTMODE > $RESULTS_DIR/test_structures.rpt
+@file(run_modus_atpg.tcl) 35: puts ">>> Building Test Fault Model..."
+>>> Building Test Fault Model...
+@file(run_modus_atpg.tcl) 36: build_faultmodel -fullfault yes
+INFO (TUI-772): The command 'build_faultmodel' will release the currently acquired resources. Please set the context and circuit state after completion of the command. [end TUI_772] 
+
+Starting Command: build_faultmodel 
+
+INFO (TDA-015): Log File: ./testresults/logs/log_build_faultmodel_041626132224-107788000 [end TDA_015]
+
+INFO (TFM-099): Build Fault Model started.  [end TFM_099] 
+INFO (TFM-102): Creating faultModel file ./tbdata/faultModel.  [end TFM_102] 
+
+Global Ignored Static Fault Count               198
+Global Ignored Dynamic Fault Count              394
+
+
+                            Global Statistics
+
+                    ATCov  ----------------------- Global Faults --------------------------
+                   Global        Total       Tested     Possibly    Redundant     Untested
+
+Total Static         0.00         3762            0            0            0         3762
+Collapsed Static     0.00         2852            0            0            0         2852
+PI Static            0.00          138            0            0            0          138
+PO Static            0.00           68            0            0            0           68
+
+Total Dynamic        0.00         3818            0            0            0         3818
+Collapsed Dynamic    0.00         2488            0            0            0         2488
+PI Dynamic           0.00          138            0            0            0          138
+PO Dynamic           0.00           68            0            0            0           68
+
+Parametric        
+
+IDDq                 0.00         3762            0                                   3762
+
+
+
+INFO (TFM-103): Creating faultStatus file ./tbdata/faultStatus.  [end TFM_103] 
+
+                           Testmode Statistics: FULLSCAN
+
+                 ---- ATCov ---- ------------------------ Testmode Faults ----------------------- ------------------------- Global Faults ------------------------
+                 Testmode Global        Total       Tested     Possibly    Redundant     Untested        Total       Tested     Possibly    Redundant     Untested
+
+Total Static         0.00   0.00         3762            0            0            0         3762         3762            0            0            0         3762
+Collapsed Static     0.00   0.00         2852            0            0            0         2852         2852            0            0            0         2852
+PI Static            0.00   0.00          138            0            0            0          138          138            0            0            0          138
+PO Static            0.00   0.00           68            0            0            0           68           68            0            0            0           68
+
+Total Dynamic        0.00   0.00         3210            0            0            0         3210         3818            0            0            0         3818
+Collapsed Dynamic    0.00   0.00         2076            0            0            0         2076         2488            0            0            0         2488
+PI Dynamic           0.00   0.00          134            0            0            0          134          138            0            0            0          138
+PO Dynamic           0.00   0.00           68            0            0            0           68           68            0            0            0           68
+
+Parametric        
+
+IDDq                 0.00   0.00         3762            0                                   3762         3762            0                                   3762
+
+Path                 0.00   0.00            0            0                                      0            0            0                                      0
+
+
+
+INFO (TFM-704): Maximum Global Test Coverage Statistics: 
+
+                  %Active      #Faults      #Active    #Inactive
+Total Static       100.00         3762         3762            0
+Collapsed Static   100.00         2852         2852            0
+PI Static          100.00          138          138            0
+PO Static          100.00           68           68            0
+
+Total Dynamic       84.08         3818         3210          608
+Collapsed Dynamic   83.44         2488         2076          412
+PI Dynamic          97.10          138          134            4
+PO Dynamic         100.00           68           68            0
+
+Parametric        
+
+There are 1 test mode(s) defined:
+      FULLSCAN
+
+[end TFM_704]
+INFO (TFM-109): Build Fault Model has completed with highest level severity message of INFO.  [end TFM_109] 
+
+INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
+
+                  Total Memory =            7,644,064  bytes
+
+                      CPU Time =    0:00:00.01
+                  Elapsed Time =    0:00:00.15                    [end TDA_001]
+
+     Date Ended:  Thursday Apr 16 13:22:26 2026  IST
+
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (TFM-099): Build Fault Model started.   
+      1 INFO (TFM-102): Creating faultModel file ./tbdata/faultModel.   
+      1 INFO (TFM-103): Creating faultStatus file ./tbdata/faultStatus.   
+      1 INFO (TFM-109): Build Fault Model has completed with highest level severity message of INFO.   
+      1 INFO (TFM-704): Maximum Global Test Coverage Statistics: 
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------
+@file(run_modus_atpg.tcl) 38: puts ">>> Generating ATPG Tests..."
+>>> Generating ATPG Tests...
+@file(run_modus_atpg.tcl) 39: create_scanchain_tests -testmode $TESTMODE -experiment scan
+Starting Command: create_scanchain_tests 
+
+INFO (TDA-015): Log File: ./testresults/logs/log_create_scanchain_tests_FULLSCAN_scan_041626132227-116089000 [end TDA_015]
+
+
+
+****************************************************************************************************
+Coverage Definitions:
+ #Faults  : Number of Active Faults (observable).
+ #Tested  : Number of Active Faults marked tested.
+ #Possibly: Number of Active Faults marked possibly tested
+            (good value is 0 or 1; fault value is X).
+ #Redund  : Number of Active Faults untestable due to redundancy.
+ #Untested: Number of Active Faults untested.
+ %TCov  (%Test Coverage)                      : #Tested / #Faults
+ %ATCov (%Adjusted TCov)                      : #Tested / (#Faults-#Redund)
+****************************************************************************************************
+****************************************************************************************************
+                           Testmode Statistics: FULLSCAN
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                  3762            0            0            0         3762   0.00   0.00
+Total Dynamic                 3210            0            0            0         3210   0.00   0.00
+
+                            Global Statistics
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                  3762            0            0            0         3762   0.00   0.00
+Total Dynamic                 3818            0            0            0         3818   0.00   0.00
+****************************************************************************************************
+
+*************************************************************************************************************
+INFO (TTC-110): Starting Scan Test generation                                                   [end TTC_110] 
+
+INFO (TDA-220):   --- Tests ---   Faults     ---- ATCov ----   -- Faults --   - Elapsed Time -  [end TDA_220] 
+INFO (TDA-220):    Sim.    Eff.  Detected    Tmode    Global     Untested                       [end TDA_220] 
+INFO (TDA-220):      1       1       2042    54.28%   54.28%         1720           00:02.07    [end TDA_220] 
+INFO (TTC-110): Ending Scan Test generation                                                     [end TTC_110] 
+*************************************************************************************************************
+
+****************************************************************************************************
+                           Testmode Statistics: FULLSCAN
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                  3762         2046            0            0         1716  54.39  54.39
+Total Dynamic                 3210         1378            0            0         1832  42.93  42.93
+
+                            Global Statistics
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                  3762         2046            0            0         1716  54.39  54.39
+Total Dynamic                 3818         1378            0            0         2440  36.09  36.09
+****************************************************************************************************
+
+
+              ----Final Pattern Statistics----
+
+ Test Section Type                       # Test Sequences
+----------------------------------------------------------
+ Scan                                           1
+----------------------------------------------------------
+ Total                                          1
+
+(I) File(s) generated (bytes and name):
+
+          73728 ./tbdata/faultStatus.FULLSCAN.scan
+           4004 ./tbdata/TBDbin.FULLSCAN.scan
+
+INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
+
+                  Total Memory =            6,409,296  bytes
+
+                      CPU Time =    0:00:00.04
+                  Elapsed Time =    0:00:02.33                    [end TDA_001]
+
+     Date Ended:  Thursday Apr 16 13:22:29 2026  IST
+
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      3 INFO (TDA-220):   --- Tests ---   Faults     ---- ATCov ----   -- Faults --   - Elapsed Time -   
+      2 INFO (TTC-110): Starting Scan Test generation                                                    
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------
+@file(run_modus_atpg.tcl) 40: create_logic_tests -testmode $TESTMODE -experiment logic
+Starting Command: create_logic_tests 
+
+INFO (TDA-015): Log File: ./testresults/logs/log_create_logic_tests_FULLSCAN_logic_041626132230-732877000 [end TDA_015]
+
+
+
+****************************************************************************************************
+Coverage Definitions:
+ #Faults  : Number of Active Faults (observable).
+ #Tested  : Number of Active Faults marked tested.
+ #Possibly: Number of Active Faults marked possibly tested
+            (good value is 0 or 1; fault value is X).
+ #Redund  : Number of Active Faults untestable due to redundancy.
+ #Untested: Number of Active Faults untested.
+ %TCov  (%Test Coverage)                      : #Tested / #Faults
+ %ATCov (%Adjusted TCov)                      : #Tested / (#Faults-#Redund)
+****************************************************************************************************
+****************************************************************************************************
+                           Testmode Statistics: FULLSCAN
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                  3762            0            0            0         3762   0.00   0.00
+Total Dynamic                 3210            0            0            0         3210   0.00   0.00
+
+                            Global Statistics
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                  3762            0            0            0         3762   0.00   0.00
+Total Dynamic                 3818            0            0            0         3818   0.00   0.00
+****************************************************************************************************
+
+*************************************************************************************************************
+INFO (TTC-110): Starting Scan Test generation                                                   [end TTC_110] 
+
+INFO (TDA-220):   --- Tests ---   Faults     ---- ATCov ----   -- Faults --   - Elapsed Time -  [end TDA_220] 
+INFO (TDA-220):    Sim.    Eff.  Detected    Tmode    Global     Untested                       [end TDA_220] 
+INFO (TDA-220):      1       1       2042    54.28%   54.28%         1720           00:00.88    [end TDA_220] 
+INFO (TTC-110): Ending Scan Test generation                                                     [end TTC_110] 
+*************************************************************************************************************
+
+*************************************************************************************************************
+INFO (TTC-110): Starting Reset/Set Test Generation                                              [end TTC_110] 
+
+INFO (TDA-220):   --- Tests ---   Faults     ---- ATCov ----   -- Faults --   - Elapsed Time -  [end TDA_220] 
+INFO (TDA-220):    Sim.    Eff.  Detected    Tmode    Global     Untested                       [end TDA_220] 
+INFO (TDA-220):      1       1        198    59.54%   59.54%         1522           00:00.89    [end TDA_220] 
+INFO (TTC-110): Ending Reset/Set Test Generation                                                [end TTC_110] 
+*************************************************************************************************************
+
+*************************************************************************************************************
+INFO (TTC-110): Starting Static Logic Test generation                                           [end TTC_110] 
+
+INFO (TDA-220):   --- Tests ---   Faults     ---- ATCov ----   -- Faults --   - Elapsed Time -  [end TDA_220] 
+INFO (TDA-220):    Sim.    Eff.  Detected    Tmode    Global     Untested                       [end TDA_220] 
+INFO (TDA-220):     16      16       1520    99.95%   99.95%            2           00:00.93    [end TDA_220] 
+INFO (TDA-220):     18      16          0    99.95%   99.95%            2           00:00.93    [end TDA_220] 
+INFO (TDA-220):     19      17          2    99.99%   99.99%            0           00:00.93    [end TDA_220] 
+INFO (TTC-110): Ending Static Logic Test generation - processing limit reached                  [end TTC_110] 
+*************************************************************************************************************
+
+****************************************************************************************************
+                           Testmode Statistics: FULLSCAN
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                  3762         3762            0            0            0 100.00 100.00
+Total Dynamic                 3210         1378            0            0         1832  42.93  42.93
+
+                            Global Statistics
+
+                           #Faults      #Tested    #Possibly      #Redund    #Untested  %TCov %ATCov
+Total Static                  3762         3762            0            0            0 100.00 100.00
+Total Dynamic                 3818         1378            0            0         2440  36.09  36.09
+****************************************************************************************************
+
+
+              ----Final Pattern Statistics----
+
+ Test Section Type                       # Test Sequences
+----------------------------------------------------------
+ Scan                                           1
+ Logic                                          18
+----------------------------------------------------------
+ Total                                          19
+
+(I) File(s) generated (bytes and name):
+
+          73728 ./tbdata/faultStatus.FULLSCAN.logic
+          42165 ./tbdata/TBDbin.FULLSCAN.logic
+
+INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
+
+                  Total Memory =            7,149,216  bytes
+
+                      CPU Time =    0:00:00.08
+                  Elapsed Time =    0:00:01.19                    [end TDA_001]
+
+     Date Ended:  Thursday Apr 16 13:22:31 2026  IST
+
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+     11 INFO (TDA-220):   --- Tests ---   Faults     ---- ATCov ----   -- Faults --   - Elapsed Time -   
+      6 INFO (TTC-110): Starting Scan Test generation                                                    
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------
+@file(run_modus_atpg.tcl) 42: redirect $RESULTS_DIR/test_coverage_logic.rpt {
+    report_statistics -experiment logic
+}
+@file(run_modus_atpg.tcl) 46: puts ">>> Writing Verilog Vectors..."
+>>> Writing Verilog Vectors...
+@file(run_modus_atpg.tcl) 47: write_vectors -testmode $TESTMODE -inexperiment logic -language verilog -scanformat serial -outputfilename $RESULTS_DIR/test_results.v
+Starting Command: write_vectors 
+
+INFO (TDA-015): Log File: ./testresults/logs/log_write_vectors_FULLSCAN_logic_041626132233-099283000 [end TDA_015]
+
+INFO (TVE-001): Verilog write vectors started.   [end TVE_001] 
+INFO (TVE-103): There was no specified TEST offset for this clock 'pin clk'.  A default clock offset of 8.000000 ns will be used.   [end TVE_103] 
+INFO (TVE-103): There was no specified SCAN offset for this clock 'pin clk'.  A default clock offset of 16.000000 ns will be used.   [end TVE_103] 
+INFO (TVE-103): There was no specified TEST offset for this clock 'pin reset'.  A default clock offset of 8.000000 ns will be used.   [end TVE_103] 
+INFO (TVE-004): Reading test section 1.1.  Test section type equals scan.   [end TVE_004] 
+INFO (TVE-003): Verilog write vectors output file will be: ./testresults/verilog/.//results/test_results.v.cyclemap.   [end TVE_003] 
+INFO (TVE-003): Verilog write vectors output file will be: ./testresults/verilog/.//results/test_results.v.1.verilog.   [end TVE_003] 
+INFO (TVE-005): Created 200 total cycles, of which 4 are test cycles, 196 are scan cycles, 0 are dynamic timed cycles and 0 are dynamic cycles that are not timed.   [end TVE_005] 
+INFO (TVE-008): Created 98 total measures, of which 0 are PO measures and 98 are SO (Scan Out) measures.  [end TVE_008] 
+INFO (TVE-004): Reading test section 1.2.  Test section type equals logic.   [end TVE_004] 
+INFO (TVE-003): Verilog write vectors output file will be: ./testresults/verilog/.//results/test_results.v.2.verilog.   [end TVE_003] 
+INFO (TVE-005): Created 1901 total cycles, of which 39 are test cycles, 1862 are scan cycles, 0 are dynamic timed cycles and 0 are dynamic cycles that are not timed.   [end TVE_005] 
+INFO (TVE-008): Created 2342 total measures, of which 578 are PO measures and 1764 are SO (Scan Out) measures.  [end TVE_008] 
+INFO (TVE-003): Verilog write vectors output file will be: ./testresults/verilog/.//results/test_results.v.mainsim.v.   [end TVE_003] 
+
+INFO (TVE-050):         TEST SEQUENCE COVERAGE ESTIMATE REPORT  
+    Test       | Global   | Global   | Global   | Global   | Global   | Global   | Sequence   | Overlapped | Total      | 
+    Sequence   | Static   | Static   | Static   | Dynamic  | Dynamic  | Dynamic  | Cycle      | Cycle      | Cycle      | 
+               | Total    | Delta    | Adjusted | Total    | Delta    | Adjusted | Count      | Count      | Count      | 
+               | Coverage | Coverage | Total    | Coverage | Coverage | Total    |            |            |            | 
+               |          |          | Coverage |          |          | Coverage |            |            |            | 
+     1.1.1.1.1 |  0.00    |  0.00    |  0.00    |  0.00    |  0.00    |  0.00    |          1 |          0 |          1 |
+     1.1.1.2.1 |  54.28   |  0.00    |  54.28   |  36.09   |  0.00    |  36.09   |        199 |          0 |        200 |
+     1.2.1.1.1 |  54.28   |  0.00    |  54.28   |  36.09   |  0.00    |  36.09   |          1 |          0 |        201 |
+     1.2.1.2.1 |  59.54   |  5.26    |  59.54   |  36.09   |  0.00    |  36.09   |        199 |         99 |        400 |
+     1.2.1.3.1 |  73.95   |  14.41   |  73.95   |  36.09   |  0.00    |  36.09   |        100 |         99 |        500 |
+     1.2.1.3.2 |  83.57   |  9.62    |  83.57   |  36.09   |  0.00    |  36.09   |        100 |         99 |        600 |
+     1.2.1.3.3 |  88.46   |  4.89    |  88.46   |  36.09   |  0.00    |  36.09   |        100 |         99 |        700 |
+     1.2.1.3.4 |  89.93   |  1.46    |  89.93   |  36.09   |  0.00    |  36.09   |        100 |         99 |        800 |
+     1.2.1.3.5 |  91.68   |  1.75    |  91.68   |  36.09   |  0.00    |  36.09   |        100 |         99 |        900 |
+     1.2.1.3.6 |  93.41   |  1.73    |  93.41   |  36.09   |  0.00    |  36.09   |        100 |         99 |       1000 |
+     1.2.1.3.7 |  94.39   |  0.98    |  94.39   |  36.09   |  0.00    |  36.09   |        100 |         99 |       1100 |
+     1.2.1.3.8 |  94.60   |  0.21    |  94.60   |  36.09   |  0.00    |  36.09   |        100 |         99 |       1200 |
+     1.2.1.3.9 |  95.24   |  0.64    |  95.24   |  36.09   |  0.00    |  36.09   |        100 |         99 |       1300 |
+    1.2.1.3.10 |  95.91   |  0.66    |  95.91   |  36.09   |  0.00    |  36.09   |        100 |         99 |       1400 |
+    1.2.1.3.11 |  96.25   |  0.35    |  96.25   |  36.09   |  0.00    |  36.09   |        100 |         99 |       1500 |
+    1.2.1.3.12 |  97.16   |  0.90    |  97.16   |  36.09   |  0.00    |  36.09   |        100 |         99 |       1600 |
+    1.2.1.3.13 |  97.45   |  0.29    |  97.45   |  36.09   |  0.00    |  36.09   |        100 |         99 |       1700 |
+    1.2.1.3.14 |  99.79   |  2.34    |  99.79   |  36.09   |  0.00    |  36.09   |        100 |         99 |       1800 |
+    1.2.1.3.15 |  99.84   |  0.05    |  99.84   |  36.09   |  0.00    |  36.09   |        100 |         99 |       1900 |
+    1.2.1.3.16 |  99.95   |  0.11    |  99.95   |  36.09   |  0.00    |  36.09   |        100 |         99 |       2000 |
+     1.2.1.4.1 |  100.00   |  0.05    |  100.00   |  36.09   |  0.00    |  36.09   |        101 |          0 |       2101 |
+  [end TVE_050] 
+
+INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
+
+                  Total Memory =            6,796,032  bytes
+
+                      CPU Time =    0:00:00.02
+                  Elapsed Time =    0:00:00.22                    [end TDA_001]
+
+     Date Ended:  Thursday Apr 16 13:22:34 2026  IST
+
+INFO (TVE-002): Verilog write vectors has completed.   [end TVE_002] 
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (TVE-001): Verilog write vectors started.    
+      1 INFO (TVE-002): Verilog write vectors has completed.    
+      4 INFO (TVE-003): Verilog write vectors output file will be: ./testresults/verilog/.//results/test_results.v.cyclemap.    
+      2 INFO (TVE-004): Reading test section 1.1.  Test section type equals scan.    
+      2 INFO (TVE-005): Created 200 total cycles, of which 4 are test cycles, 196 are scan cycles, 0 are dynamic timed cycles and 0 are dynamic cycles that are not timed.    
+      2 INFO (TVE-008): Created 98 total measures, of which 0 are PO measures and 98 are SO (Scan Out) measures.   
+      1 INFO (TVE-050):         TEST SEQUENCE COVERAGE ESTIMATE REPORT  
+      3 INFO (TVE-103): There was no specified TEST offset for this clock 'pin clk'.  A default clock offset of 8.000000 ns will be used.    
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------
+@file(run_modus_atpg.tcl) 49: puts "\n============================================="
+
+=============================================
+@file(run_modus_atpg.tcl) 50: puts "Modus Run Complete."
+Modus Run Complete.
+@file(run_modus_atpg.tcl) 51: puts "=============================================\n"
+=============================================
+
+@file(run_modus_atpg.tcl) 52: gui_open
+
+ERROR (TUI-809): gui_open invocation requires an explicit invocation of 'set_db workdir'to the current working directory.  [end TUI_809]
+
+#@ End verbose source run_modus_atpg.tcl
+@modus:root:/ 3> gui_open
+
+ERROR (TUI-809): gui_open invocation requires an explicit invocation of 'set_db workdir'to the current working directory.  [end TUI_809]
+
+@modus:root:/ 4> gui_show
+invalid command name "gui_show"
+@modus:root:/ 5> open_gui
+invalid command name "open_gui"
+@modus:root:/ 6> show_gui
+invalid command name "show_gui"

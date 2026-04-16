@@ -1,0 +1,104 @@
+Starting Command: report_test_structures 
+
+INFO (TDA-015): Log File: .//testresults/logs/log_report_test_structures_FULLSCAN_041626132217-432898000 [end TDA_015]
+
+
+INFO (TLM-055): Design Summary
+                --------------
+
+Hierarchical Model:                  Flattened Model:
+          3,044  Blocks                       2,212  Blocks
+          9,608  Pins                         2,212  Nodes
+          5,380  Nets
+
+Primary Inputs:                      Primary Outputs:
+         70  Input Only                        34  Output Only
+          0  Input/Output                       0  Input/Output
+         70  Total Inputs                      34  Total Outputs
+
+Tied Nets:                           Dotted Nets:
+        196  Tied to 0                          0  Two-State
+         98  Tied to 1                          0  Three-State
+          0  Tied to X                          0  Total Dotted Nets
+        294  Total Tied Nets
+
+Selected Primitive Functions:
+          0  Clock Chopper (CHOP) primitives 
+          0  RAMs
+          0  ROMs
+          0  TSDs
+          0  Resistors
+          0  Transistors
+        162  MUX2s
+          0  Latches
+
+
+         98  Rising  Edge Flop w/Set-Dominant and Reset Port
+         98  Total Flops
+
+        283  Technology Library Cell Instances
+
+[end TLM_055] 
+
+Information for Test Mode:  FULLSCAN
+-------------------------
+
+         Scan Type = GSD
+
+
+
+
+Control/Observe Chain Information for Test Mode:  FULLSCAN
+-----------------------------------------------
+
+     1 Control Chains (0 Control Only)
+     1 Observe Chains (0 Observe Only)
+     1 Chains are Control and Observe
+
+  Longest Scan Chain: 98 bits
+  Average Scan Chain Length: 98 bits
+
+
+  Control Chain: 1
+    Fed by: Scan-In
+    Number of Control Points: 1
+      Control Point Pin Index/Name          68/port:scan_in    Pipeline Stages: 0 
+    Load Point Pin Index/Name  68/port:scan_in
+    Length: 98
+    Scan Section: Scan_Section_Sequence
+  Observe Chain: 1
+    Number of Observe Points: 1
+      Observe Point Pin Index/Name          71/port:scan_out    Pipeline Stages: 0 
+    Unload Point Pin Index/Name  71/port:scan_out
+    Unload Point In Phase with Load Point
+    Length: 98
+    Scan Section: Scan_Section_Sequence
+
+
+Report completed.
+
+
+INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
+
+                  Total Memory =            6,309,952  bytes
+
+                      CPU Time =    0:00:00.01
+                  Elapsed Time =    0:00:00.00                    [end TDA_001]
+
+     Date Ended:  Thursday Apr 16 13:22:24 2026  IST
+
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (TLM-055): Design Summary
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------

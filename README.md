@@ -296,7 +296,7 @@ To validate the fault detection capability of the design, manual fault injection
 ### Simulation Output
 
 <p align="center">
-  <img src="schematics/fault_simulation_output.jpeg" width="800"/>
+  <img src="schematics/fault_simulation_output.jpeg" width="500"/>
 </p>
 
 ---

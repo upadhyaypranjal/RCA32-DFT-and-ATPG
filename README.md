@@ -257,6 +257,59 @@ The following schematic illustrates the synthesized gate-level implementation of
 
 ---
 
+## 🧪 Fault Simulation (ModelSim)
+
+To validate the fault detection capability of the design, manual fault injection was performed using ModelSim. Selected stuck-at faults were injected at both combinational and sequential nodes, and the resulting outputs were analyzed.
+
+### Simulation Phases
+
+- **Phase 1: Golden Verification**  
+  The design was verified under normal conditions to establish correct reference outputs.
+
+- **Phase 2: Fault Injection (carry[16] S-A-1)**  
+  A stuck-at-1 fault was injected in the internal carry chain.
+
+- **Phase 3: Fault Injection (a_reg[0] S-A-1)**  
+  A stuck-at-1 fault was injected in the input register.
+
+---
+
+### Fault Simulation Results
+
+| Fault Location | Fault Type | Expected Output | Faulty Output | Detected |
+|---------------|-----------|----------------|---------------|----------|
+| carry[16]     | Stuck-at-1 | 00003333       | 00013333      | Yes |
+| a_reg[0]      | Stuck-at-1 | 00000000       | 00000001      | Yes |
+
+---
+
+### Fault Coverage Summary
+
+| Metric | Value |
+|-------|------|
+| Total Faults Injected | 2 |
+| Total Faults Detected | 2 |
+| Fault Coverage | 100% |
+
+---
+
+### Simulation Output
+
+<p align="center">
+  <img src="schematics/fault_simulation_output.png" width="800"/>
+</p>
+
+---
+
+### Key Observations
+
+- Faults in both combinational (carry chain) and sequential (register) elements were successfully detected.  
+- The carry fault propagated through the ripple structure, affecting higher-order bits.  
+- Register fault directly impacted the least significant bit, making it easily observable.  
+- This simulation demonstrates fault detectability at the functional level prior to ATPG-based analysis.  
+
+---
+
 ## 📝 Technical Observations
 
 - The **32-bit Ripple Carry Adder** exhibits a relatively compact scan architecture due to its moderate sequential complexity.  
@@ -268,7 +321,6 @@ The following schematic illustrates the synthesized gate-level implementation of
 - Timing analysis confirms **positive slack**, indicating that DFT insertion did not violate timing constraints.  
 
 ---
-
 
 
 ## 📂 Repository Structure
